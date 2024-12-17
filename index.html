@@ -99,7 +99,7 @@
 											250-487-0748
 										</a>
 										<a class="text-sm font-semibold leading-relaxed inline-block py-2 pr-3 whitespac e-nowrap text-white hover:text-gray-300"
-										href="href="mailto:trubuildcon@gmail.com">
+										href="mailto:trubuildcon@gmail.com">
 											<i class="fa-regular fa-envelope"></i>
 											trubuildcon@gmail.com
 										</a>
@@ -164,8 +164,8 @@
 										</a>
 										<!--Logo Title Words right of image-->
 										<div id="LogoWords" class="hidden pl-2 flex flex-col text-black">
-											<h3 class="text-xl font-bold ">TRUBUILD</h3>
-											<h4 class="pb-1 text-md font-bold text-center">Construction</h4>
+											<h3 class="text-xl font-bold underline">TRUBUILD</h3>
+											<h4 class="pb-1 text-md text-center">Construction</h4>
 										</div>
 									<!--End of Logo container-->
 									</div>	
@@ -904,34 +904,39 @@
 
 			//Array of image Urls for header logo
 			const HeaderImageList = [
-				'images/trubuild-rectangle-logo-555x1500.jpg',
-				'images/trubuildlogo-100.png',
-				'images/trubuildlogo-round-orange.png',				
+				'images/lightwoodlogo.png',						//0
+				'images/trubuild-rectangle-logo-555x1500.jpg',	//1
+				'images/trubuildlogo-100.png'					//2
+				
 			];
 
 			//Array of image Urls for about us logo
 			const AboutImageList = [
-				'images/Round-logo.png',
-				'images/trubuildlogo-round-orange.png',
-				'images/trubuildlogo-round-orange.png'				
+				'images/lightwoodlogo.png',						//0
+				'images/Round-logo.png',						//1
+				'images/trubuildlogo-round-orange.png',			//2
+				
 			];
 
 			//	change logos when clicked on main logo
 			function NewIconImg(){
-				imgIndex = (imgIndex +1) % HeaderImageList.length;
+				
 				document.getElementById('HeroLogo').src = HeaderImageList[imgIndex];
 				if(imgIndex==0){
+					document.getElementById('HeroLogo').width = 90;
+					document.getElementById('LogoWords').classList.remove("hidden");
+
+					}else if(imgIndex==1){
+											
 						document.getElementById('HeroLogo').width = 150;
 						document.getElementById('LogoWords').classList.add("hidden");
-					}else if(imgIndex==1){
-						document.getElementById('HeroLogo').width = 90;
 					}else if(imgIndex==2){
-						document.getElementById('HeroLogo').width = 70;
-						document.getElementById('LogoWords').classList.remove("hidden");
-				}
+						document.getElementById('HeroLogo').width = 90;
+				}				
 				document.getElementById('AboutLogo').src = AboutImageList[imgIndex];
-				
+				imgIndex = (imgIndex +1) % HeaderImageList.length;
 			}
+			//selects logo on page load
 			NewIconImg();
 		</script>
 		<script>	
