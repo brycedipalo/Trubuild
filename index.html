@@ -130,7 +130,7 @@
 												<span class="hidden md:inline-block ml-2">Like</span>
 											</a>
 										</li>
-										<!-- instagram link-->
+										<!-- instagram link
 										<li class="flex items-center">
 											<a class="px-3 lg:py-4 sm:py-2 flex items-center text-xs uppercase font-bold hover:text-gray-300" 
 											target="_blank" rel="noopener noreferrer"
@@ -139,6 +139,7 @@
 												<span class="hidden md:inline-block ml-2">Follow</span>
 											</a>
 										</li>
+										-->
 									</ul>	
 								<!--end of socials container, right side of top header-->
 								</div>
@@ -514,7 +515,7 @@
 				<script>
 				  // Dynamically generate the image list
 				  const imageFolder = 'images/gallery/';
-				  const totalImages = 25;
+				  const totalImages = 32;
 				  const imageList = Array.from({ length: totalImages }, (_, i) => `${imageFolder}${i + 1}.jpg`);
 			  
 				  // Populate the Swiper container
@@ -662,11 +663,13 @@
 					>
 				</div>
 				<!-- Review Container. add classes when more than 1 review-->
-				<div id="GoogleReviewImgs" class="">
-					<img src="images/Google Review1.jpg"
+				<div id="GoogleReviewImgs" class="flex-col">
+					
+					<img src="images/AllReviews.jpg"
 					alt="Google review"
 					class="rounded-lg shadow-lg"				
 					>
+
 				</div>
 			<!--end of Google review container-->
 			</div>			
@@ -781,7 +784,7 @@
 								<i class="flex fab fa-facebook-square"></i>
 								</button>
 							</a>
-							<!-- Insta link-->
+							<!-- Insta link
 							<a 
 								target="_blank" rel="noopener noreferrer"
 								href="https://brycedipalo.github.io/RoboJoker/">
@@ -789,6 +792,8 @@
 									<i class="flex fab fa-instagram"></i>
 								</button>
 							</a>
+							-->
+
 						<!--end of Container for Socials Icon links-->	
 						</div>
 					<!-- end of Socials Container with headings for footer-->
@@ -800,27 +805,12 @@
 							<!-- useful Links container-->
 							<div class="w-full px-4 pb-6 flex flex-col">
 								<div class="">
-									<span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Useful Links</span>
+									<span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Our Partners</span>
 									<ul class="list-unstyled">
 										<li>
 											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" 
 											target="_blank" rel="noopener noreferrer"
-											href="https://www.simplymarla.com/small-home-renovation-ideas/">Inspiring Designs</a>
-										</li>
-										<li>
-											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-											target="_blank" rel="noopener noreferrer"
-											href="http://www.homemade-modern.com/">DIY Projects</a>
-										</li>
-										<li>
-											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-											target="_blank" rel="noopener noreferrer"
-											href="https://blog.expertsinyourhome.com/topic/home-maintenance">Home Maintenance</a>
-										</li>
-										<li>
-											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" 
-											target="_blank" rel="noopener noreferrer"
-											href="https://lakecitycleaners.ca">Local Professional House Cleaners</a>
+											href="https://lakecitycleaners.ca">LakeCity Cleaners</a>
 										</li>
 									</ul>
 								</div>
@@ -837,7 +827,7 @@
 										</a>
 									</li>
 									<li>
-										<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm flex flex-row " href="mailto:trubuildcon@gmail.com">
+										<a class="text-gray-700 hover:text-gray-900 font-semibold pb-2 text-sm flex flex-row " href="mailto:trubuildcon@gmail.com">
 											<i class="fa-regular fa-envelope"></i>
 											&nbsp; trubuildcon@gmail.com
 										</a>
@@ -863,7 +853,7 @@
 				<div class="flex flex-col items-center md:justify-between justify-center">
 					<div class="w-full md:w-4/12 px-4 mx-auto text-center">
 						<div class="text-sm text-gray-600 font-semibold py-1">
-							Copyright © 2024 Bellissimo Creativo.  
+							Copyright © 2025 Bellissimo Creativo.  
 							<a 
 								target="_blank" rel="noopener noreferrer"
 								href="https://dipalo.design" 
@@ -900,7 +890,7 @@
 			}
 
 			//switch page logos by clicking on heading logo
-			let imgIndex =0; // used to track the current image
+			let imgIndex =2; // used to track the current image
 
 			//Array of image Urls for header logo
 			const HeaderImageList = [
