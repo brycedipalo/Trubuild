@@ -490,7 +490,7 @@
 		<!-- End of Service section-->	
 		</section>
 		<!-- Start Photo WHeel, Gallery, and Google Review section with scripts--> 
-		<section id="gallery" class="p-10 pb-20 flex flex-col items-center lg:pb-60">
+		<section id="gallery" class="p-10 pb-20 flex flex-col items-center">
 			<h2 class="pb-4 text-2xl font-semibold text-black">See the Difference</h2>
 			<!-- photo wheel container with script-->
 			<div class=" flex items-center justify-center shadow-lg overflow-hidden">
@@ -653,28 +653,101 @@
 				});
 			// End of Photo Gallery
 			</script>
-			<!-- Google reviews container-->
-			<div class="flex flex-col items-center pt-20">
-				<!--Image Container - centered-->
-				<div class="pb-2 flex justify-center">
-					<img src="images/verified-reviews.jpg"
-					alt="verified-google-reviews"
-					width="137px"
-					>
-				</div>
-				<!-- Review Container. add classes when more than 1 review-->
-				<div id="GoogleReviewImgs" class="flex-col">
-					<a href="https://www.google.com/search?client=firefox-b-d&q=trubuild+penticton#lrd=0xa78c032ea1793e09:0xd8af7959e29369e1,1,,,," target="_blank">
-						<img src="images/AllReviews.jpg"
-						alt="Google review"
-						class="rounded-lg shadow-lg"				
-						>
-					</a>
+			<!-- End of Gallery section-->	
+		</section>
+		<!--start of Reviews Section-->
+		<section>
+			<!--  reviews container-->
+			<div class="pb-20 lg:pb-60">
+				<!-- Main Reviews Container. add classes when more than 1 review-->
+				<div class=" bg-white p-6">
+						<h2 class="text-lg font-semibold mb-4 text-center">Customer Reviews</h2>
+						<div class="grid grid-cols-1 md:grid-cols-2 justify-center mx-auto">
 
-				</div>
+
+							<!-- Review Template 
+							<div class="flex justify-center">
+							<div style="max-width:400px; padding-bottom:10px; margin-bottom: 20px;" class="border-b shadow-lg rounded-lg px-6 pt-8">
+								<div class="flex items-center mt-2 mb-2 py-4">
+
+									<img src="images/google-logo-icon.png" 
+										alt="Google-icon" 
+										class="w-8 h-8 rounded-full object-cover"
+										style="width:40px"
+									>
+
+									<p class="text-lg font-semibold text-gray-800 ml-2">
+										--NAME--
+									</p>
+								</div>
+								<div class="!mb-8"> 
+									<p class="text-sm text-gray-600">⭐⭐⭐⭐⭐</p>
+									<p class="text-gray-800 mt-1 !mb-8">
+										"
+										--COMMENT--
+										"
+									</p>
+								</div>								
+							</div>
+							</div>
+								
+							-->
+
+							<!-- Review 1 -->
+							 <div class="flex justify-center">
+							<div  style="max-width:400px; padding-bottom:10px; margin-bottom: 20px;" class="border-b shadow-lg rounded-lg px-6 pt-8 pb-8">
+								<div class="flex items-center mt-2 mb-2 py-4">
+									<img src="images/google-logo-icon.png" 
+										alt="Google-icon" 
+										class="w-8 h-8 rounded-full object-cover"
+										style="width:40px">
+									<p class="text-lg font-semibold text-gray-800 ml-2">Vader Markewich</p>
+								</div>
+								<div class="!mb-8"> <!-- Extra bottom padding applied here -->
+									<p class="text-sm text-gray-600">⭐⭐⭐⭐⭐</p>
+									<p class="text-gray-800 mt-1 !mb-8">
+										"My wife and I contracted Brady to do some work for us.
+										We hired him to build a couple new walls in our basement and he did a phenomenal job. 
+										The quality and timeframe were both met, above and beyond. Brady is punctual, hardworking, 
+										reliable and trustworthy. We were extremely impressed. We will absolutely hire him again for 
+										future projects and will be our first recommendation for others!"
+									</p>
+								</div>								
+							</div>
+							</div>
+
+
+							<!-- Review 2 -->
+							 <div class="flex justify-center">
+							<div style="max-width:400px; padding-bottom:10px; margin-bottom: 20px;" class="border-b shadow-lg rounded-lg px-6 pt-10">
+								<div class="flex items-center mt-2 mb-2 py-4">
+									<img src="images/google-logo-icon.png" 
+										alt="Google-icon" 
+										class="w-8 h-8 rounded-full object-cover"
+										style="width:40px">
+									<p class="text-lg font-semibold text-gray-800 ml-2">
+										Mike Johnson
+									</p>
+								</div>
+								<div class="!mb-8"> <!-- Extra bottom padding applied here -->
+									<p class="text-sm text-gray-600">⭐⭐⭐⭐⭐</p>
+									<p class="text-gray-800 mt-1 !mb-8">
+										"I had Brady build a shed for us and a base
+										to sit it on and they did an absolutely fantastic job. It looks great 
+										and I would use them again for sure."
+									</p>
+								</div>								
+							</div>
+							</div>
+							
+
+
+					  
+						</div>
+					</div>
 			<!--end of Google review container-->
 			</div>			
-		<!--end of gallery section-->		
+		<!--end of review section-->		
 		</section>
 		<!--Contact us section -->
 		<section id="contact" class="relative block py-24 lg:pt-0 bg-gray-900">
