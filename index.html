@@ -80,7 +80,7 @@
 		<!-- HERO Wrapper with background image secion -->
 		<div class="relative hidden" id="content">	
 			<!-- Hero Image Section -->
-			<div id="HeroImage" class= "h-screen bg-cover bg-center";">
+			<div id="HeroImage" class= "h-screen bg-cover bg-center">
 				<!--Hero Image Cover -->
 				<div id="home" class= "h-screen bg-cover bg-center bg-black bg-opacity-20 flex-col" >
 					<!-- Header positioned absolutely on top of the background -->
@@ -90,7 +90,7 @@
 							<!--double container for top half of header. this can be cleaned up later-->
 							<div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
 								<!-- Contact info container, left side of top header  -->
-								<div class="w-full sm:w-auto relative flex sm:justify-between w-auto static block">
+								<div class="sm:w-auto sm:justify-between static block">
 									<!--left side-top header-contact info -->
 									<div class="w-full flex flex-wrap justify-between sm:flex-row ">  
 										<a class="text-sm font-semibold inline-block mr-4 py-2 whitespac e-nowrap text-white hover:text-gray-300"
@@ -104,7 +104,7 @@
 											trubuildcon@gmail.com
 										</a>
 										<!--Location info container on top header hidden on smalls screens-->
-										<div class="hidden md:inline-block text-sm font-semibold leading-relaxed inline-block mr-4 py-2 whitespac e-nowrap text-white">
+										<div class="hidden md:inline-block text-sm font-semibold leading-relaxed mr-4 py-2 whitespac e-nowrap text-white">
 											<i class="fa-solid fa-location-dot"></i>
 											Penticton BC
 										</div>
@@ -115,7 +115,7 @@
 								<!-- Socials Container, right side of top header -->
 								<div class="flex flex-grow items-center bg-transparent shadow-none ">
 									<!--Location info container on bottom header visible on small screens-->
-									<div class="md:hidden inline-block text-sm font-semibold leading-relaxed inline-block mr-4 py-2 whitespac e-nowrap text-white">
+									<div class="md:hidden inline-block text-sm font-semibold leading-relaxed mr-4 py-2 whitespac e-nowrap text-white">
 										<i class="fa-solid fa-location-dot"></i>
 										Penticton BC
 									</div>
@@ -164,7 +164,7 @@
 											>
 										</a>
 										<!--Logo Title Words right of image-->
-										<div id="LogoWords" class="hidden pl-2 flex flex-col text-black">
+										<div id="LogoWords" class="hidden pl-2 flex-col text-black">
 											<h3 class="text-xl font-bold underline">TRUBUILD</h3>
 											<h4 class="pb-1 text-md text-center">Construction</h4>
 										</div>
@@ -192,7 +192,7 @@
 								<!-- end of nav & logo flex container-->
 								</nav>
 								<!--dropdown menu-->
-								<div id="navmenu" class="flex justify-end hidden ">
+								<div id="navmenu" class=" justify-end hidden ">
 									<ul class="flex flex-col font-bold">
 									<!-- <li class="mr-4 p-2 text-right hover:text-gray-300"><a href="#home">Home</a></li> -->
 										<li class="mr-4 p-2 text-right hover:text-gray-300"><a href="#about">About</a></li>
@@ -462,7 +462,7 @@
 			<!--end of Heading Container with Service items wrapper -->
 			</div>
 			<!-- full screen Modal- activated on click - reusable for each service item - opac background container -->
-			<div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-80 hidden z-50 flex items-center justify-center">
+			<div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-80 hidden z-50 items-center justify-center">
 				<!--Modal Content Background-->
 				<div class="bg-white rounded-lg shadow-lg max-w-4xl w-full p-6 relative overflow-y-auto max-h-screen">
 					<!-- Close button-->
@@ -965,7 +965,7 @@
 			}
 
 			//switch page logos by clicking on heading logo
-			let imgIndex =2; // used to track the current image
+			let imgIndex =0; // used to track the current image
 
 			//Array of image Urls for header logo
 			const HeaderImageList = [
