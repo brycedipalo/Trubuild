@@ -1,0 +1,62 @@
+---
+// About section with company info and key features
+const features = [
+	"Strong Local Reputation and Community Focus",
+	"Quality Workmanship and Attention to Detail",
+	"Reliable and Professional Service"
+];
+---
+
+<section id="about" class="py-16 bg-gray-50">
+	<div class="container mx-auto px-4">
+		<div class="max-w-4xl mx-auto">
+			<!-- Logo & Image -->
+			<div class="flex flex-col md:flex-row items-center gap-8 mb-8">
+				<img
+					src="/images/About-us.jpg"
+					alt="Trubuild Construction - About Us"
+					class="w-full md:w-1/2 rounded-lg shadow-lg"
+					loading="lazy"
+				/>
+				<div class="flex flex-col items-center md:items-start">
+					<img
+						src="/images/lightwoodlogo.png"
+						alt="Trubuild Construction Logo"
+						class="h-24 w-auto mb-4"
+					/>
+				</div>
+			</div>
+
+			<!-- Content -->
+			<div class="text-center md:text-left space-y-4">
+				<h2 class="text-3xl font-semibold text-gray-900 mb-6">About Us</h2>
+
+				<p class="text-lg text-gray-700 leading-relaxed">
+					Welcome to Trubuild Construction, your trusted partner for home renovations
+					tailored to bring your vision to life. With expertise in decks, fences,
+					flooring, drywall installation and finishing, exterior siding, as well as
+					windows and doors, we're here to enhance your home with precision and care.
+				</p>
+
+				<p class="text-lg text-gray-700 leading-relaxed">
+					As a locally owned business, we're passionate about building lasting relationships
+					within our community and delivering results that exceed expectations. Whether you're
+					refreshing a single room or transforming your outdoor spaces, Trubuild Construction
+					is ready to make your home renovation smooth, efficient, and rewarding.
+				</p>
+			</div>
+
+			<!-- Key Features -->
+			<ul class="mt-8 space-y-4 lg:flex lg:space-y-0 lg:gap-8">
+				{features.map((feature) => (
+					<li class="flex items-center gap-3">
+						<span class="flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full bg-yellow-200 text-black">
+							<i class="fa-regular fa-star"></i>
+						</span>
+						<h4 class="text-gray-700 font-medium">{feature}</h4>
+					</li>
+				))}
+			</ul>
+		</div>
+	</div>
+</section>

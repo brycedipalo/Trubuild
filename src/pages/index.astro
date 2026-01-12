@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Reviews from '../components/Reviews.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Trubuild Construction - Penticton BC - Home Renovation">
+	<Header />
+	<Hero />
+	<About />
+	<Services />
+
+	<!-- Gallery section placeholder - Keen-slider TODO -->
+	<section id="gallery" class="py-16 bg-gray-100">
+		<div class="container mx-auto px-4 text-center">
+			<h2 class="text-3xl font-semibold mb-8">See the Difference</h2>
+			<p class="text-gray-600">Photo gallery coming soon with Keen-slider...</p>
+		</div>
+	</section>
+
+	<Reviews />
+	<Contact />
+	<Footer />
+</Layout>

@@ -1,0 +1,52 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const {
+	title,
+	description = "Penticton's trusted contractor for decks, fences, kitchens, bathrooms, flooring & drywall. Quality work, reliable service."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<link rel="canonical" href="https://trubuildpenticton.ca/" />
+
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+		<link rel="manifest" href="/favicon/site.webmanifest" />
+
+		<title>{title}</title>
+
+		<!-- Font Awesome -->
+		<script src="https://kit.fontawesome.com/4f4f3b0c03.js" crossorigin="anonymous" defer></script>
+
+		<!-- Preconnect for external resources -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	</head>
+	<body class="antialiased">
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	@import "tailwindcss";
+
+	body, html {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		font-family: 'Montserrat', 'Segoe UI', sans-serif;
+	}
+</style>
