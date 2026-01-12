@@ -5,6 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Penticton's trusted contractor for decks, fences, kitchens, bathrooms, flooring & drywall. Quality work, reliable service.">
 		<link rel="canonical" href="https://trubuildpenticton.ca/" >
+		<!-- Preload hero image for faster LCP -->
+		<link rel="preload" as="image" href="images/blueprints-2000.webp" type="image/webp">
 		<!-- Favicon-->
 		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -22,12 +24,12 @@
 		<link href="src/output.css" rel="stylesheet">
 		<!--AOS  -->	
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-		<!-- Google Fonts-->
+		<!-- Google Fonts - async load to prevent render blocking -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;800&display=swap" rel="stylesheet">
-	    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+	    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 	   <style>
 		body, html {
 			margin: 0;
@@ -368,7 +370,8 @@
 								src="images/deck-sm.jpg"
 								alt="Decks"
 								width="250"
-								height="250" 
+								height="250"
+								loading="lazy" 
 								data-title="Decks" 
 								data-text=
 								"Our decks are expertly designed to enhance your outdoor living space. We use high-quality materials and skilled craftsmanship to build sturdy and beautiful decks that are perfect for relaxing, entertaining, or enjoying the view. Whether you need a small patio deck or a large, multi-level deck, we have the experience and expertise to bring your vision to life. Choose from various styles, including traditional wood, composite, and modern metal, to fit your unique taste and needs."
@@ -388,7 +391,8 @@
 								src="images/fence-sm.jpg"
 								alt="Fences"
 								width="250"
-								height="250" 
+								height="250"
+								loading="lazy" 
 								data-title="Fences" 
 								data-text=
 								"From privacy to security, we provide custom fence installations designed to suit your property and lifestyle. Whether you need a wooden fence for privacy, a decorative iron fence for curb appeal, or a durable vinyl fence for low maintenance, we have the perfect solution for you. Our fences are built to last and are crafted with attention to detail, ensuring they complement the aesthetics of your home while providing the functionality you need."
@@ -406,7 +410,8 @@
 								src="images/kitchen-sm.jpg"
 								alt="Kitchens"
 								width="250"
-								height="250" 
+								height="250"
+								loading="lazy" 
 								data-title="Kitchens" 
 								data-text=
 								"A kitchen is the heart of any home, and we specialize in designing and building functional, stylish, and personalized kitchen spaces. Whether you are renovating an existing kitchen or starting from scratch, we will work with you to create a space that fits your needs and taste. From custom cabinetry to high-end appliances, we focus on quality craftsmanship, modern design, and maximizing your kitchen’s potential to suit both everyday use and entertaining."
@@ -424,7 +429,8 @@
 								src="images/bathroom-sm.jpg"
 								alt="Bathrooms"
 								width="250"
-								height="250" 
+								height="250"
+								loading="lazy" 
 								data-title="Bathrooms" 
 								data-text=
 								"Transform your bathroom into a spa-like retreat with our expert remodeling services. We offer a wide range of solutions, including complete bathroom overhauls, modern shower installations, custom vanities, and elegant tile work. Whether you're looking to create a relaxing atmosphere with a freestanding tub or need a functional family bathroom, we bring both style and functionality to every project. Trust our team to deliver a bathroom that enhances your comfort and home value."
@@ -442,7 +448,8 @@
 								src="images/floor-sm.jpg"
 								alt="Flooring"
 								width="250"
-								height="250" 
+								height="250"
+								loading="lazy" 
 								data-title="Flooring" 
 								data-text=
 								"Flooring sets the tone for the entire room, and we provide a range of flooring options to suit any style, budget, or space. From hardwood to tile, laminate to carpet, we have the materials and expertise to install the perfect floor for your home. Whether you're renovating a single room or your entire house, our flooring solutions are designed to be durable, attractive, and easy to maintain. We offer expert installation and help you choose the best flooring based on your needs and preferences."
@@ -460,7 +467,8 @@
 								src="images/drywall-sm.jpg"
 								alt="Drywall"
 								width="250"
-								height="250" 
+								height="250"
+								loading="lazy" 
 								data-title="Drywall" 
 								data-text=
 								"Drywall is a key component of any construction or renovation project, and our team specializes in high-quality drywall installation and finishing. We work with precision to ensure smooth, flawless walls and ceilings that are ready for paint or finishing touches. Whether you’re building a new home, remodeling a room, or need drywall repairs, we handle every job with care. Our services include installation, patching, texturing, and seamless finishing, all done to the highest standards of craftsmanship."
@@ -739,7 +747,8 @@
 										class="w-8 h-8 rounded-full object-cover"
 										style="width:40px"
 										width="800"
-										height="800">
+										height="800"
+										loading="lazy">
 									<p class="text-lg font-semibold text-gray-800 ml-2">Vader Markewich</p>
 								</div>
 								<div class="!mb-8"> <!-- Extra bottom padding applied here -->
@@ -765,7 +774,8 @@
 										class="w-8 h-8 rounded-full object-cover"
 										style="width:40px"
 										width="800"
-										height="800">
+										height="800"
+										loading="lazy">
 									<p class="text-lg font-semibold text-gray-800 ml-2">
 										Mike Johnson
 									</p>
@@ -971,7 +981,7 @@
 				<div class="flex flex-col items-center md:justify-between justify-center">
 					<div class="w-full md:w-4/12 px-4 mx-auto text-center">
 						<div class="text-sm text-gray-600 font-semibold py-1">
-							Copyright © 2025 Bellissimo Creativo.  
+							Copyright © 2026 Bellissimo Creativo.  
 							<a 
 								target="_blank" rel="noopener noreferrer"
 								href="https://dipalo.design" 
