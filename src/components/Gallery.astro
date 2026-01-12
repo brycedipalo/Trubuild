@@ -55,53 +55,60 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 	import KeenSlider from 'keen-slider';
 	import 'keen-slider/keen-slider.min.css';
 
-	// Initialize slider
-	const slider = new KeenSlider('.keen-slider', {
-		loop: true,
-		slides: {
-			perView: 1,
-			spacing: 10
-		}
-	});
+	document.addEventListener('DOMContentLoaded', () => {
+		// Initialize slider
+		const sliderElement = document.querySelector('.keen-slider');
+		if (!sliderElement) return;
 
-	// Navigation dots
-	const dotsContainer = document.querySelector('.dots');
-	const slides = document.querySelectorAll('.keen-slider__slide');
-
-	slides.forEach((_, idx) => {
-		const dot = document.createElement('button');
-		dot.classList.add('dot');
-		if (idx === 0) dot.classList.add('active');
-		dot.addEventListener('click', () => slider.moveToIdx(idx));
-		dotsContainer?.appendChild(dot);
-	});
-
-	slider.on('slideChanged', (s) => {
-		const dots = document.querySelectorAll('.dot');
-		dots.forEach((dot, idx) => {
-			dot.classList.toggle('active', idx === s.track.details.rel);
+		const slider = new KeenSlider('.keen-slider', {
+			loop: true,
+			slides: {
+				perView: 1,
+				spacing: 10
+			}
 		});
-	});
 
-	// Fullscreen modal
-	const modal = document.getElementById('fullscreenModal');
-	const fullscreenImg = document.getElementById('fullscreenImage') as HTMLImageElement;
-	const closeBtn = document.getElementById('closeFullscreen');
+		// Navigation dots
+		const dotsContainer = document.querySelector('.dots');
+		const slides = document.querySelectorAll('.keen-slider__slide');
 
-	document.querySelectorAll('.gallery-image').forEach((img) => {
-		img.addEventListener('click', () => {
-			fullscreenImg.src = (img as HTMLImageElement).src;
-			modal?.classList.remove('hidden');
+		slides.forEach((_, idx) => {
+			const dot = document.createElement('button');
+			dot.classList.add('dot');
+			if (idx === 0) dot.classList.add('active');
+			dot.addEventListener('click', () => slider.moveToIdx(idx));
+			dotsContainer?.appendChild(dot);
 		});
-	});
 
-	closeBtn?.addEventListener('click', () => {
-		modal?.classList.add('hidden');
-	});
+		slider.on('slideChanged', (s) => {
+			const dots = document.querySelectorAll('.dot');
+			dots.forEach((dot, idx) => {
+				dot.classList.toggle('active', idx === s.track.details.rel);
+			});
+		});
 
-	modal?.addEventListener('click', (e) => {
-		if (e.target === modal) {
-			modal.classList.add('hidden');
-		}
+		// Fullscreen modal
+		const modal = document.getElementById('fullscreenModal');
+		const fullscreenImg = document.getElementById('fullscreenImage') as HTMLImageElement;
+		const closeBtn = document.getElementById('closeFullscreen');
+
+		document.querySelectorAll('.gallery-image').forEach((img) => {
+			img.addEventListener('click', () => {
+				if (fullscreenImg && modal) {
+					fullscreenImg.src = (img as HTMLImageElement).src;
+					modal.classList.remove('hidden');
+				}
+			});
+		});
+
+		closeBtn?.addEventListener('click', () => {
+			modal?.classList.add('hidden');
+		});
+
+		modal?.addEventListener('click', (e) => {
+			if (e.target === modal) {
+				modal.classList.add('hidden');
+			}
+		});
 	});
 </script>
