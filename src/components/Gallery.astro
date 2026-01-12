@@ -1,0 +1,107 @@
+---
+// Gallery section with Keen-slider
+// Note: Image 13 doesn't exist (skips from 12 to 14)
+const imageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
+---
+
+<section id="gallery" class="py-16 bg-gray-100">
+	<div class="container mx-auto px-4">
+		<h2 class="text-3xl font-semibold text-center mb-12">See the Difference</h2>
+
+		<!-- Keen Slider Container -->
+		<div class="keen-slider max-w-4xl mx-auto rounded-lg shadow-xl overflow-hidden">
+			{images.map((src) => (
+				<div class="keen-slider__slide">
+					<img
+						src={src}
+						alt="Project Gallery"
+						loading="lazy"
+						class="w-full h-96 object-cover cursor-pointer gallery-image"
+					/>
+				</div>
+			))}
+		</div>
+
+		<!-- Navigation Dots -->
+		<div class="dots flex justify-center gap-2 mt-6"></div>
+	</div>
+
+	<!-- Fullscreen Modal -->
+	<div id="fullscreenModal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50">
+		<button id="closeFullscreen" class="absolute top-5 right-5 text-white text-4xl hover:text-gray-300">&times;</button>
+		<img id="fullscreenImage" src="" alt="Fullscreen" class="max-w-full max-h-full rounded-lg" />
+	</div>
+</section>
+
+<style>
+	.dots {
+		display: flex;
+	}
+	.dot {
+		width: 12px;
+		height: 12px;
+		background: #cbd5e0;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: background 0.3s;
+	}
+	.dot.active {
+		background: #3b82f6;
+	}
+</style>
+
+<script>
+	import KeenSlider from 'keen-slider';
+	import 'keen-slider/keen-slider.min.css';
+
+	// Initialize slider
+	const slider = new KeenSlider('.keen-slider', {
+		loop: true,
+		slides: {
+			perView: 1,
+			spacing: 10
+		}
+	});
+
+	// Navigation dots
+	const dotsContainer = document.querySelector('.dots');
+	const slides = document.querySelectorAll('.keen-slider__slide');
+
+	slides.forEach((_, idx) => {
+		const dot = document.createElement('button');
+		dot.classList.add('dot');
+		if (idx === 0) dot.classList.add('active');
+		dot.addEventListener('click', () => slider.moveToIdx(idx));
+		dotsContainer?.appendChild(dot);
+	});
+
+	slider.on('slideChanged', (s) => {
+		const dots = document.querySelectorAll('.dot');
+		dots.forEach((dot, idx) => {
+			dot.classList.toggle('active', idx === s.track.details.rel);
+		});
+	});
+
+	// Fullscreen modal
+	const modal = document.getElementById('fullscreenModal');
+	const fullscreenImg = document.getElementById('fullscreenImage') as HTMLImageElement;
+	const closeBtn = document.getElementById('closeFullscreen');
+
+	document.querySelectorAll('.gallery-image').forEach((img) => {
+		img.addEventListener('click', () => {
+			fullscreenImg.src = (img as HTMLImageElement).src;
+			modal?.classList.remove('hidden');
+		});
+	});
+
+	closeBtn?.addEventListener('click', () => {
+		modal?.classList.add('hidden');
+	});
+
+	modal?.addEventListener('click', (e) => {
+		if (e.target === modal) {
+			modal.classList.add('hidden');
+		}
+	});
+</script>
