@@ -3,9 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Trubuild Construction, Home Renovation Services, Penticton BC,
-		 Drywall, Framing, Deck Building, Bathroom Renovation, Kitchen Renovation, Flooring, Fence Building">
-		<!-- <link rel="canonical" href="" > -->
+		<meta name="description" content="Penticton's trusted contractor for decks, fences, kitchens, bathrooms, flooring & drywall. Quality work, reliable service.">
+		<link rel="canonical" href="https://trubuildpenticton.ca/" >
 		<!-- Favicon-->
 		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -52,18 +51,18 @@
 		.font-roboto { font-family: 'Roboto', sans-serif;}
 		.font-montserrat, body, h1, h2, h3, h4, h5, h6, li {font-family: 'Montserrat', 'Poppins' 'Roboto',  'Segoe UI', sans-serif, Arial, Helvetica;
 		/* Hero Image with adjusted resolution/file sizes for faster loading on smaller screens. */
+		/* WebP format (25-30% smaller than JPEG with same quality) */
 		#HeroImage {
-			background-image: url('images/blueprints.jpg');
-
+			background-image: url('images/blueprints.webp');
 		}
 		@media (max-width: 1920px) {
 			#HeroImage {
-			background-image: url('images/blueprints-2000.jpg');
+			background-image: url('images/blueprints-2000.webp');
 			}
 		}
 		@media (max-width: 768px) {
 			#HeroImage {
-			background-image: url('images/blueprints-1000.jpg');
+			background-image: url('images/blueprints-1000.webp');
 			}
 
 			#GoogleReviewImgs img {
@@ -245,6 +244,8 @@
 						alt="Home renovation worker"
 						class="rounded-lg shadow-lg"
 						src="images/About-us.jpg"
+						width="640"
+						height="427"
 					/>
 					</div>
 					<!-- container for About us Content and Logo. Right side on large display to keep first p below logo and next to the About us img-->
@@ -253,8 +254,9 @@
 						<div class="flex items-end">
 							<img
 							id="AboutLogo"
-							class="p-1 shadow-2xl bg-black rounded-full" 
+							class="p-1 shadow-2xl bg-black rounded-full"
 							src="images/trubuildlogo-round-orange.png"
+							alt="Trubuild Construction Logo"
 							width="100"
 							/>
 							<div class="pl-2 flex flex-col">
@@ -363,15 +365,17 @@
 						<!-- Image and Service Item title wrapper-->
 						<div class="relative cursor-pointer service-item">
 							<img class="rounded-lg shadow-lg service-img"
-								src="images/deck-sm.jpg" 
-								alt="Decks" 
+								src="images/deck-sm.jpg"
+								alt="Decks"
+								width="250"
+								height="250" 
 								data-title="Decks" 
 								data-text=
 								"Our decks are expertly designed to enhance your outdoor living space. We use high-quality materials and skilled craftsmanship to build sturdy and beautiful decks that are perfect for relaxing, entertaining, or enjoying the view. Whether you need a small patio deck or a large, multi-level deck, we have the experience and expertise to bring your vision to life. Choose from various styles, including traditional wood, composite, and modern metal, to fit your unique taste and needs."
 								data-images='["images/deck-sm.jpg"]'>
 							<!--Image Overlay -->
 							<div class="rounded-lg shadow-lg w-full absolute inset-0 flex justify-center bg-black bg-opacity-50 text-white">
-								<h1 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Decks</h1>
+								<h2 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Decks</h2>
 							</div>
 						<!--End of iamge and heading -->
 						</div>
@@ -381,14 +385,16 @@
 					<div class="flex justify-center">
 						<div class="relative cursor-pointer service-item">
 							<img class="rounded-lg shadow-lg service-img"
-								src="images/fence-sm.jpg" 
-								alt="Fences" 
+								src="images/fence-sm.jpg"
+								alt="Fences"
+								width="250"
+								height="250" 
 								data-title="Fences" 
 								data-text=
 								"From privacy to security, we provide custom fence installations designed to suit your property and lifestyle. Whether you need a wooden fence for privacy, a decorative iron fence for curb appeal, or a durable vinyl fence for low maintenance, we have the perfect solution for you. Our fences are built to last and are crafted with attention to detail, ensuring they complement the aesthetics of your home while providing the functionality you need."
 								data-images='["images/fence-sm.jpg"]'>
 							<div class="rounded-lg shadow-lg w-full absolute inset-0 flex justify-center bg-black bg-opacity-50 text-white">
-								<h1 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Fences</h1>
+								<h2 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Fences</h2>
 							</div>
 						</div>
 					<!-- End of Service Item: Fences -->
@@ -397,14 +403,16 @@
 					<div class="flex justify-center">
 						<div class="relative cursor-pointer service-item">
 							<img class="rounded-lg shadow-lg service-img"
-								src="images/kitchen-sm.jpg" 
-								alt="Kitchens" 
+								src="images/kitchen-sm.jpg"
+								alt="Kitchens"
+								width="250"
+								height="250" 
 								data-title="Kitchens" 
 								data-text=
 								"A kitchen is the heart of any home, and we specialize in designing and building functional, stylish, and personalized kitchen spaces. Whether you are renovating an existing kitchen or starting from scratch, we will work with you to create a space that fits your needs and taste. From custom cabinetry to high-end appliances, we focus on quality craftsmanship, modern design, and maximizing your kitchen’s potential to suit both everyday use and entertaining."
 								data-images='["images/kitchen-sm.jpg"]'>
 							<div class="rounded-lg shadow-lg w-full absolute inset-0 flex justify-center bg-black bg-opacity-50 text-white">
-								<h1 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Kitchens</h1>
+								<h2 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Kitchens</h2>
 							</div>
 						</div>
 					<!-- End of Service Item: Kitchens-->
@@ -413,14 +421,16 @@
 					<div class="flex justify-center">
 						<div class="relative cursor-pointer service-item">
 							<img class="rounded-lg shadow-lg service-img"
-								src="images/bathroom-sm.jpg" 
-								alt="Bathrooms" 
+								src="images/bathroom-sm.jpg"
+								alt="Bathrooms"
+								width="250"
+								height="250" 
 								data-title="Bathrooms" 
 								data-text=
 								"Transform your bathroom into a spa-like retreat with our expert remodeling services. We offer a wide range of solutions, including complete bathroom overhauls, modern shower installations, custom vanities, and elegant tile work. Whether you're looking to create a relaxing atmosphere with a freestanding tub or need a functional family bathroom, we bring both style and functionality to every project. Trust our team to deliver a bathroom that enhances your comfort and home value."
 								data-images='["images/bathroom-sm.jpg"]'>
 							<div class="rounded-lg shadow-lg w-full absolute inset-0 flex justify-center bg-black bg-opacity-50 text-white">
-								<h1 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Bathrooms</h1>
+								<h2 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Bathrooms</h2>
 							</div>
 						</div>
 					<!-- End of Service Item: bathrooms -->
@@ -429,14 +439,16 @@
 					<div class="flex justify-center">
 						<div class="relative cursor-pointer service-item">
 							<img class="rounded-lg shadow-lg service-img"
-								src="images/floor-sm.jpg" 
-								alt="Flooring" 
+								src="images/floor-sm.jpg"
+								alt="Flooring"
+								width="250"
+								height="250" 
 								data-title="Flooring" 
 								data-text=
 								"Flooring sets the tone for the entire room, and we provide a range of flooring options to suit any style, budget, or space. From hardwood to tile, laminate to carpet, we have the materials and expertise to install the perfect floor for your home. Whether you're renovating a single room or your entire house, our flooring solutions are designed to be durable, attractive, and easy to maintain. We offer expert installation and help you choose the best flooring based on your needs and preferences."
 								data-images='["images/floor-sm.jpg"]'>
 							<div class="rounded-lg shadow-lg w-full absolute inset-0 flex justify-center bg-black bg-opacity-50 text-white">
-								<h1 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Flooring</h1>
+								<h2 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Flooring</h2>
 							</div>
 						</div>
 					<!-- End of Service Item: Flooring -->
@@ -445,14 +457,16 @@
 					<div class="flex justify-center">
 						<div class="relative cursor-pointer service-item">
 							<img class="rounded-lg shadow-lg service-img"
-								src="images/drywall-sm.jpg" 
-								alt="Drywall" 
+								src="images/drywall-sm.jpg"
+								alt="Drywall"
+								width="250"
+								height="250" 
 								data-title="Drywall" 
 								data-text=
 								"Drywall is a key component of any construction or renovation project, and our team specializes in high-quality drywall installation and finishing. We work with precision to ensure smooth, flawless walls and ceilings that are ready for paint or finishing touches. Whether you’re building a new home, remodeling a room, or need drywall repairs, we handle every job with care. Our services include installation, patching, texturing, and seamless finishing, all done to the highest standards of craftsmanship."
 								data-images='["images/drywall-sm.jpg"]'>
 							<div class="rounded-lg shadow-lg w-full absolute inset-0 flex justify-center bg-black bg-opacity-50 text-white">
-								<h1 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Drywall</h1>
+								<h2 class="py-5 text-lg md:py-20 md:text-2xl font-bold">Drywall</h2>
 							</div>
 						</div>
 					<!-- End of Service Item: Drywall-->
@@ -720,10 +734,12 @@
 							 <div class="flex justify-center">
 							<div  style="max-width:400px; padding-bottom:10px; margin-bottom: 20px;" class="border-b shadow-lg rounded-lg px-6 pt-8 pb-8">
 								<div class="flex items-center mt-2 mb-2 py-4">
-									<img src="images/google-logo-icon.png" 
-										alt="Google-icon" 
+									<img src="images/google-logo-icon.png"
+										alt="Google-icon"
 										class="w-8 h-8 rounded-full object-cover"
-										style="width:40px">
+										style="width:40px"
+										width="800"
+										height="800">
 									<p class="text-lg font-semibold text-gray-800 ml-2">Vader Markewich</p>
 								</div>
 								<div class="!mb-8"> <!-- Extra bottom padding applied here -->
@@ -744,10 +760,12 @@
 							 <div class="flex justify-center">
 							<div style="max-width:400px; padding-bottom:10px; margin-bottom: 20px;" class="border-b shadow-lg rounded-lg px-6 pt-10">
 								<div class="flex items-center mt-2 mb-2 py-4">
-									<img src="images/google-logo-icon.png" 
-										alt="Google-icon" 
+									<img src="images/google-logo-icon.png"
+										alt="Google-icon"
 										class="w-8 h-8 rounded-full object-cover"
-										style="width:40px">
+										style="width:40px"
+										width="800"
+										height="800">
 									<p class="text-lg font-semibold text-gray-800 ml-2">
 										Mike Johnson
 									</p>
