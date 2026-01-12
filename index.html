@@ -16,9 +16,10 @@
 		<title>Trubuild Construction - Penticton BC - Home Renovation</title>
 		<!--font awesome - single source, defer loading-->
 		<script src="https://kit.fontawesome.com/4f4f3b0c03.js" crossorigin="anonymous" defer></script>
-		<!-- Swiper Slider-->
-		<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+		<!-- Swiper Slider - defer CSS, async JS-->
+		<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" media="print" onload="this.media='all'">
+		<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"></noscript>
 		<!--tailwind -->
 		<link href="src/output.css" rel="stylesheet">
 		<!--AOS - defer non-critical animation CSS-->
