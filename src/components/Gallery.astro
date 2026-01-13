@@ -10,25 +10,65 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 		<h2 class="text-3xl font-semibold text-center mb-12">See the Difference</h2>
 
 		<!-- Keen Slider Container -->
-		<div class="keen-slider max-w-4xl mx-auto rounded-lg shadow-xl overflow-hidden">
-			{images.map((src) => (
-				<div class="keen-slider__slide">
-					<img
-						src={src}
-						alt="Project Gallery"
-						loading="lazy"
-						class="w-full h-96 object-cover cursor-pointer gallery-image"
-					/>
-				</div>
-			))}
+		<div class="relative max-w-4xl mx-auto">
+			<div class="keen-slider rounded-lg shadow-xl overflow-hidden">
+				{images.map((src) => (
+					<div class="keen-slider__slide">
+						<img
+							src={src}
+							alt="Project Gallery"
+							loading="lazy"
+							class="w-full h-96 object-cover cursor-pointer gallery-image"
+						/>
+					</div>
+				))}
+			</div>
+
+			<!-- Arrow Navigation -->
+			<button id="arrow-left" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black rounded-full p-3 shadow-lg z-10">
+				<i class="fas fa-chevron-left"></i>
+			</button>
+			<button id="arrow-right" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black rounded-full p-3 shadow-lg z-10">
+				<i class="fas fa-chevron-right"></i>
+			</button>
 		</div>
 
 		<!-- Navigation Dots -->
 		<div class="dots flex justify-center gap-2 mt-6"></div>
+
+		<!-- View All Gallery Button -->
+		<div class="flex justify-center mt-8">
+			<button id="viewAllBtn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+				View All Photos
+			</button>
+		</div>
+	</div>
+
+	<!-- Thumbnail Grid Modal -->
+	<div id="thumbnailModal" class="fixed inset-0 bg-black/95 hidden z-50 overflow-y-auto">
+		<div class="container mx-auto px-4 py-8">
+			<div class="flex justify-between items-center mb-6">
+				<h3 class="text-2xl font-bold text-white">Gallery ({images.length} Photos)</h3>
+				<button id="closeThumbnails" class="text-white text-4xl hover:text-gray-300">&times;</button>
+			</div>
+
+			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+				{images.map((src, idx) => (
+					<div class="thumbnail-item cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow" data-src={src}>
+						<img
+							src={src}
+							alt={`Gallery image ${idx + 1}`}
+							class="w-full h-48 object-cover hover:scale-110 transition-transform"
+							loading="lazy"
+						/>
+					</div>
+				))}
+			</div>
+		</div>
 	</div>
 
 	<!-- Fullscreen Modal -->
-	<div id="fullscreenModal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50">
+	<div id="fullscreenModal" class="fixed inset-0 bg-black/95 flex items-center justify-center hidden z-50">
 		<button id="closeFullscreen" class="absolute top-5 right-5 text-white text-4xl hover:text-gray-300">&times;</button>
 		<img id="fullscreenImage" src="" alt="Fullscreen" class="max-w-full max-h-full rounded-lg" />
 	</div>
@@ -58,7 +98,12 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 	document.addEventListener('DOMContentLoaded', () => {
 		// Initialize slider
 		const sliderElement = document.querySelector('.keen-slider');
-		if (!sliderElement) return;
+		if (!sliderElement) {
+			console.error('Slider element not found');
+			return;
+		}
+
+		console.log('Initializing Keen Slider with', sliderElement.children.length, 'slides');
 
 		const slider = new KeenSlider('.keen-slider', {
 			loop: true,
@@ -67,6 +112,15 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 				spacing: 10
 			}
 		});
+
+		console.log('Slider initialized:', slider);
+
+		// Arrow navigation
+		const arrowLeft = document.getElementById('arrow-left');
+		const arrowRight = document.getElementById('arrow-right');
+
+		arrowLeft?.addEventListener('click', () => slider.prev());
+		arrowRight?.addEventListener('click', () => slider.next());
 
 		// Navigation dots
 		const dotsContainer = document.querySelector('.dots');
@@ -108,6 +162,38 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 		modal?.addEventListener('click', (e) => {
 			if (e.target === modal) {
 				modal.classList.add('hidden');
+			}
+		});
+
+		// Thumbnail grid modal
+		const viewAllBtn = document.getElementById('viewAllBtn');
+		const thumbnailModal = document.getElementById('thumbnailModal');
+		const closeThumbnails = document.getElementById('closeThumbnails');
+
+		viewAllBtn?.addEventListener('click', () => {
+			thumbnailModal?.classList.remove('hidden');
+		});
+
+		closeThumbnails?.addEventListener('click', () => {
+			thumbnailModal?.classList.add('hidden');
+		});
+
+		// Click thumbnail to open fullscreen
+		document.querySelectorAll('.thumbnail-item').forEach((thumb) => {
+			thumb.addEventListener('click', () => {
+				const src = thumb.getAttribute('data-src');
+				if (fullscreenImg && modal && src) {
+					fullscreenImg.src = src;
+					thumbnailModal?.classList.add('hidden');
+					modal.classList.remove('hidden');
+				}
+			});
+		});
+
+		// Close thumbnail modal on backdrop click
+		thumbnailModal?.addEventListener('click', (e) => {
+			if (e.target === thumbnailModal) {
+				thumbnailModal.classList.add('hidden');
 			}
 		});
 	});
