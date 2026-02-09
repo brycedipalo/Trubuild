@@ -26,6 +26,15 @@ const {
 
 		<title>{title}</title>
 
+		<!-- Google Analytics (GA4) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VF7K3S449"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-8VF7K3S449');
+		</script>
+
 		<!-- Font Awesome -->
 		<script src="https://kit.fontawesome.com/4f4f3b0c03.js" crossorigin="anonymous" defer></script>
 
