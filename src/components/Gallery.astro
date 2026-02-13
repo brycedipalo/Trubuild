@@ -1,8 +1,22 @@
 ---
 // Gallery section with Keen-slider
-// Note: Image 13 doesn't exist (skips from 12 to 14)
-const imageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
-const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
+// Images processed through Astro's image pipeline for WebP conversion + compression
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const imageModules = import.meta.glob<{ default: ImageMetadata }>(
+	'/src/assets/gallery/*.jpg',
+	{ eager: true }
+);
+
+// Sort by numeric filename (1.jpg, 2.jpg, etc.)
+const images = Object.entries(imageModules)
+	.map(([path, mod]) => ({
+		num: parseInt(path.match(/(\d+)\.jpg$/)?.[1] || '0'),
+		image: mod.default
+	}))
+	.sort((a, b) => a.num - b.num)
+	.map(entry => entry.image);
 ---
 
 <section id="gallery" class="py-16 bg-gray-100">
@@ -12,13 +26,15 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 		<!-- Keen Slider Container -->
 		<div class="relative max-w-4xl mx-auto">
 			<div class="keen-slider rounded-lg shadow-xl overflow-hidden">
-				{images.map((src) => (
+				{images.map((img, idx) => (
 					<div class="keen-slider__slide">
-						<img
-							src={src}
-							alt="Project Gallery"
-							loading="lazy"
+						<Image
+							src={img}
+							alt={`Project photo ${idx + 1}`}
+							widths={[640, 1024]}
+							sizes="(max-width: 896px) 100vw, 896px"
 							class="w-full h-96 object-cover cursor-pointer gallery-image"
+							loading={idx === 0 ? "eager" : "lazy"}
 						/>
 					</div>
 				))}
@@ -53,11 +69,13 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 			</div>
 
 			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-				{images.map((src, idx) => (
-					<div class="thumbnail-item cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow" data-src={src}>
-						<img
-							src={src}
+				{images.map((img, idx) => (
+					<div class="thumbnail-item cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow">
+						<Image
+							src={img}
 							alt={`Gallery image ${idx + 1}`}
+							width={400}
+							height={300}
 							class="w-full h-48 object-cover hover:scale-110 transition-transform"
 							loading="lazy"
 						/>
@@ -100,12 +118,7 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 	document.addEventListener('DOMContentLoaded', () => {
 		// Initialize slider
 		const sliderElement = document.querySelector('.keen-slider');
-		if (!sliderElement) {
-			console.error('Slider element not found');
-			return;
-		}
-
-		console.log('Initializing Keen Slider with', sliderElement.children.length, 'slides');
+		if (!sliderElement) return;
 
 		const slider = new KeenSlider('.keen-slider', {
 			loop: true,
@@ -114,8 +127,6 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 				spacing: 10
 			}
 		});
-
-		console.log('Slider initialized:', slider);
 
 		// Arrow navigation
 		const arrowLeft = document.getElementById('arrow-left');
@@ -148,6 +159,7 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 		const fullscreenImg = document.getElementById('fullscreenImage') as HTMLImageElement;
 		const closeBtn = document.getElementById('closeFullscreen');
 
+		// Slider images → fullscreen
 		document.querySelectorAll('.gallery-image').forEach((img) => {
 			img.addEventListener('click', () => {
 				if (fullscreenImg && modal) {
@@ -180,12 +192,12 @@ const images = imageNumbers.map(n => `/images/gallery/${n}.jpg`);
 			thumbnailModal?.classList.add('hidden');
 		});
 
-		// Click thumbnail to open fullscreen
+		// Click thumbnail → fullscreen (read src from rendered img)
 		document.querySelectorAll('.thumbnail-item').forEach((thumb) => {
 			thumb.addEventListener('click', () => {
-				const src = thumb.getAttribute('data-src');
-				if (fullscreenImg && modal && src) {
-					fullscreenImg.src = src;
+				const img = thumb.querySelector('img');
+				if (fullscreenImg && modal && img) {
+					fullscreenImg.src = img.src;
 					thumbnailModal?.classList.add('hidden');
 					modal.classList.remove('hidden');
 				}

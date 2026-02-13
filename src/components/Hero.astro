@@ -1,14 +1,23 @@
 ---
 // Hero section with background image and CTA text
+import { Image } from 'astro:assets';
+import heroImage from '../assets/blueprints.webp';
 ---
 
 <section
 	id="home"
 	class="relative h-screen w-full overflow-hidden"
-	style="background-image: url('/images/blueprints.webp'); background-size: cover; background-position: center;"
 >
-	<!-- Dark overlay - TEMPORARILY REMOVED FOR TESTING -->
-	<!-- <div class="absolute inset-0 bg-black bg-opacity-40"></div> -->
+	<!-- Hero background image (proper <img> for LCP) -->
+	<Image
+		src={heroImage}
+		alt=""
+		widths={[640, 1024, 1600]}
+		sizes="100vw"
+		class="absolute inset-0 w-full h-full object-cover"
+		loading="eager"
+		fetchpriority="high"
+	/>
 
 	<!-- Content -->
 	<div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">

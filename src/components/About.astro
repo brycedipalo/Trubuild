@@ -1,5 +1,9 @@
 ---
 // About section with company info and key features
+import { Image } from 'astro:assets';
+import aboutImage from '../assets/About-us.jpg';
+import logoImage from '../assets/lightwoodlogo.png';
+
 const features = [
 	"Strong Local Reputation and Community Focus",
 	"Quality Workmanship and Attention to Detail",
@@ -12,17 +16,22 @@ const features = [
 		<div class="max-w-4xl mx-auto">
 			<!-- Logo & Image -->
 			<div class="flex flex-col md:flex-row items-center gap-8 mb-8">
-				<img
-					src="/images/About-us.jpg"
-					alt="Trubuild Construction - About Us"
+				<Image
+					src={aboutImage}
+					alt="Trubuild Construction team at work"
+					widths={[400, 640]}
+					sizes="(max-width: 768px) 100vw, 50vw"
 					class="w-full md:w-1/2 rounded-lg shadow-lg"
 					loading="lazy"
 				/>
 				<div class="flex flex-col items-center md:items-start">
-					<img
-						src="/images/lightwoodlogo.png"
+					<Image
+						src={logoImage}
 						alt="Trubuild Construction Logo"
+						width={96}
+						height={88}
 						class="h-24 w-auto mb-4"
+						loading="lazy"
 					/>
 				</div>
 			</div>

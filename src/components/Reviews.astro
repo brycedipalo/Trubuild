@@ -1,5 +1,7 @@
 ---
 // Customer Reviews section
+import { Image } from 'astro:assets';
+import reviewsImage from '../assets/AllReviews.jpg';
 ---
 
 <section class="py-16 bg-white">
@@ -8,9 +10,11 @@
 
 		<!-- Google Reviews Image -->
 		<div class="flex justify-center">
-			<img
-				src="/images/AllReviews.jpg"
-				alt="Google Customer Reviews"
+			<Image
+				src={reviewsImage}
+				alt="Google Customer Reviews for Trubuild Construction"
+				widths={[400, 706]}
+				sizes="(max-width: 768px) 100vw, 706px"
 				class="max-w-full h-auto rounded-lg shadow-lg"
 				loading="lazy"
 			/>
