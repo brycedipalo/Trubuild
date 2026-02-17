@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Message Sent | Trubuild Construction" description="Thank you for contacting Trubuild Construction.">
+	<main class="min-h-screen flex items-center justify-center bg-gray-900">
+		<div class="text-center px-4">
+			<h1 class="text-4xl font-semibold text-white mb-4">Message sent</h1>
+			<p class="text-lg text-gray-400 mb-8">Thanks for reaching out. We'll get back to you shortly.</p>
+			<a
+				href="/"
+				class="bg-blue-600 text-white font-bold uppercase text-sm px-8 py-3 rounded shadow hover:bg-blue-700 transition-colors duration-200"
+			>
+				Back to Home
+			</a>
+			<p class="text-gray-500 text-sm mt-6">Redirecting in <span id="countdown">5</span> seconds...</p>
+		</div>
+	</main>
+
+	<script is:inline>
+		let seconds = 5;
+		const el = document.getElementById('countdown');
+		const timer = setInterval(() => {
+			seconds--;
+			el.textContent = seconds;
+			if (seconds <= 0) {
+				clearInterval(timer);
+				window.location.href = '/';
+			}
+		}, 1000);
+	</script>
+</Layout>
